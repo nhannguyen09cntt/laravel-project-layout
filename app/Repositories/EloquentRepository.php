@@ -51,7 +51,7 @@ abstract class EloquentRepository implements RepositoryInterface
      * @param $id
      * @return mixed
      */
-    public function show($id)
+    public function find($id)
     {
         $result = $this->_model->find($id);
 
@@ -78,7 +78,7 @@ abstract class EloquentRepository implements RepositoryInterface
      */
     public function update($id, array $attributes)
     {
-        $result = $this->show($id);
+        $result = $this->find($id);
         if ($result) {
             $result->update($attributes);
             return $result;
@@ -95,7 +95,7 @@ abstract class EloquentRepository implements RepositoryInterface
      */
     public function delete($id)
     {
-        $result = $this->show($id);
+        $result = $this->find($id);
         if ($result) {
             $result->delete();
 
